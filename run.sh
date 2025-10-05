@@ -1,1 +1,1 @@
-./build/simple-games
+./build/$1

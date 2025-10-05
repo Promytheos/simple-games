@@ -6,25 +6,22 @@ project('simple-games', 'c',
   ]
 )
 
-# Find raylib dependency
 raylib_dep = dependency('raylib', required : true)
+cc = meson.get_compiler('c')
+math_dep = cc.find_library('m', required: false)
 
-# Source files
+common_deps = [raylib_dep, math_dep]
+
 main_src = 'src/main.c'
-# common_src = files(
-#   'src/common.c'
-# )
-# game_sources = files(
-#   'src/games/pong.c',
-#   'src/games/tictactoe.c'
-# )
 
-# All source files
-# all_sources = [main_src, common_src, game_sources]
+games = {
+  'pong': 'src/pong.c'
+}
 
-# Main executable
-executable('simple-games',
-  sources : main_src,
-  dependencies : raylib_dep,
-  install : true
-)
+foreach name, impl : games
+  executable(name,
+    sources : [main_src, impl],
+    dependencies : common_deps,
+    install : true
+  )
+endforeach
