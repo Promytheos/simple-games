@@ -1,8 +1,14 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 
+#ifndef SCREEN_WIDTH
 #define SCREEN_WIDTH 980
+#endif
+
+#ifndef SCREEN_HEIGHT
 #define SCREEN_HEIGHT 640
+#endif
+
 #define SCREEN_TOP 0
 #define SCREEN_BOTTOM SCREEN_HEIGHT
 #define SCREEN_RIGHT SCREEN_WIDTH

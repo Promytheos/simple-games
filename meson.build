@@ -15,7 +15,8 @@ common_deps = [raylib_dep, math_dep]
 main_src = 'src/main.c'
 
 games = {
-  'pong': 'src/pong.c'
+  'pong': 'src/pong.c',
+  'tictactoe': 'src/tictactoe.c'
 }
 
 foreach name, impl : games
